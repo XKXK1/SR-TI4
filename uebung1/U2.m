@@ -1,12 +1,17 @@
-%% Aufgabe 1  - Mittelwert ueber n Werte
+%% Aufgabe 2  - Mittelwert ueber ein Chirp-Signal
 
 % Parameter
 k = 250
 
-% Datei einlesen und in in Monosignal umwandeln
-[y_in fS] = audioread("sprech.wav");
-y_in = (y_in(:,1) + y_in(:,2)) / 2;
-y_in = normalize(y_in);
+% Chirp Signal erzeugen
+% Chirp-Parameter
+tStart = 0; fStart = 10;
+tStop = 5; fStop = 5000;
+FSample = 1e4; TSample = 1 / FSample;
+% ----------------------------------------
+t = tStart:TSample:tStop;
+y_in = chirp(t, fStart, tStop, fStop, 'logarithmic');
+
 
 % Request memory for filtered signal
 y_out = zeros(size(y_in));
@@ -34,4 +39,4 @@ sound(y_out, fS);
 
 % Zusatzaufgaben
 size_of_y = size(y_in)
-samplerate = fS
+samplerate = FSample
