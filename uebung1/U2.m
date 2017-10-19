@@ -32,11 +32,15 @@ plot(y_out);
 title (strcat('Gefiltert mit k=', int2str(k)));
 xlabel 'Samples';
 
+% Signale normieren
+y_in = normalize(y_in);
+y_out = normalize(y_out);
+
 % Ausgabe
 sound(y_in, fS);
 pause
 sound(y_out, fS);
 
 % Zusatzaufgaben
-size_of_y = size(y_in)
+[channels, samples] = size(y_in)
 samplerate = FSample

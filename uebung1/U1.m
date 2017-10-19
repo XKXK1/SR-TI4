@@ -6,7 +6,6 @@ k = 250
 % Datei einlesen und in in Monosignal umwandeln
 [y_in fS] = audioread("sprech.wav");
 y_in = (y_in(:,1) + y_in(:,2)) / 2;
-y_in = normalize(y_in);
 
 % Request memory for filtered signal
 y_out = zeros(size(y_in));
@@ -27,11 +26,15 @@ plot(y_out);
 title (strcat('Gefiltert mit k=', int2str(k)));
 xlabel 'Samples';
 
+% Signale normieren
+y_in = normalize(y_in);
+y_out = normalize(y_out);
+
 % Ausgabe
 sound(y_in, fS);
 pause
 sound(y_out, fS);
 
 % Zusatzaufgaben
-size_of_y = size(y_in)
+[samples, channels] = size(y_in)
 samplerate = fS

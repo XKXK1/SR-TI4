@@ -17,5 +17,8 @@ y_out = zeros(size(y_in));
 y_in_delay = vertcat(zeros(Delay, 1), y_in(1:(end-Delay)));
 y_out = y_in .+ (Feedback * y_in_delay);
 
+% Signal normieren
+y_out = normalize(y_out);
+
 % Ausgabe
 sound(y_out, fS);

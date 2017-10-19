@@ -31,5 +31,9 @@ plot(dist2, x);
 title (strcat('Bendiksen - Verzerrer mit D=', int2str(D)));
 grid on;
 
+
+% Signal normieren
+y_out = normalize(y_out);
+
 % Ausgabe
 sound(y_out, fS);
