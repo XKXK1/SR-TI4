@@ -1,19 +1,18 @@
-%% Aufgabe 1  - Mittelwert ueber n Werte
+%% Übung 1 - Signaltheorie
+% Derya Uyargil, Moritz Höwer
+% 26.10.2017
+
+%% Aufgabe 1  - Mittelwert über n Werte
 
 % Parameter
 k = 250
 
 % Datei einlesen und in in Monosignal umwandeln
-[y_in fS] = audioread("sprech.wav");
+[y_in, fS] = audioread('sprech.wav');
 y_in = (y_in(:,1) + y_in(:,2)) / 2;
 
-% Request memory for filtered signal
-y_out = zeros(size(y_in));
-
-% Prepare parameters for filter
-a = 1;
-b = repmat(1/k, 1, k);
-y_out = filter(b, a, y_in);
+% Moving average filter anwenden
+y_out = movmean(y_in, k);
 
 % Plot signals
 subplot(2, 1, 1);
