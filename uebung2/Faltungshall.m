@@ -9,8 +9,8 @@
 %[signal, fSignal] = audioread("../uebung1/Sprech.wav");#
 
 %[response, fResponse] = audioread("Church2.wav");
-[response, fResponse] = audioread("InTheSilo2.wav");
-%[response, fResponse] = audioread("TrigRoom2.wav");
+%[response, fResponse] = audioread("InTheSilo2.wav");
+[response, fResponse] = audioread("TrigRoom2.wav");
 
 %%
 % Ensure signals are mono

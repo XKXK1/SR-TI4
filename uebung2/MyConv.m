@@ -15,6 +15,8 @@ function output = MyConv(a, b)
   % reserve space
   output = zeros(1, length(long));
   
+  shortFlip = fliplr(short);
+  
   n = length(short);
   for i = 1:length(long)
     if(i < n)
@@ -23,7 +25,7 @@ function output = MyConv(a, b)
     else
       signal = long(i-n+1 : i);
     endif
-    signal = signal .* short;
+    signal = signal .* shortFlip;
     output(i) = sum(signal);
   endfor
  end
