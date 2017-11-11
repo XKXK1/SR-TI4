@@ -17,7 +17,9 @@ y_in_delay = vertcat(zeros(Delay, 1), y_in(1:(end-Delay)));
 y_out = y_in + (Feedback * y_in_delay);
 
 % Signal normieren
+addpath ../lib; % load normalize function from our library
 y_out = normalize(y_out);
+rmpath ../lib;
 
 % Ausgabe
 sound(y_out, fS);

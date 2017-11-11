@@ -32,7 +32,9 @@ grid on;
 
 
 % Signal normieren
+addpath ../lib; % load normalize function from our library
 y_out = normalize(y_out);
+rmpath ../lib;
 
 % Ausgabe
 sound(y_out, fS);
