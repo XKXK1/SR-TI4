@@ -14,12 +14,16 @@ y_GitMelody = decimate(y_GitMelody,2);
 %Groeﬂe der Dateien bestimmen
 FileSizeGit = size(y_GitMelody,1);
 FileSizeTrig = size(y_TrigRoom,1);
- 
+
+tic
 %V2 Faltung mit eigener Funktion
 y_TrigRoom_conv = MyConv(y_GitMelody, y_TrigRoom);
+timeForMyConv = toc;
 
+tic
 %V1 Faltung mit Matlab Funktion
 y_TrigRoom2_conv = conv(y_GitMelody, y_TrigRoom);
+timeForMatlabConv = toc;
 
 y_TrigRoom_conv = normalize(y_TrigRoom_conv);
 y_TrigRoom2_conv = normalize(y_TrigRoom2_conv);
