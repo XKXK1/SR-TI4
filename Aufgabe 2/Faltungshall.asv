@@ -16,33 +16,25 @@ FileSizeGit = size(y_GitMelody,1);
 FileSizeTrig = size(y_TrigRoom,1);
  
 %V2 Faltung mit eigener Funktion
-y_TrigRoom_conv = MyConv(y_GitMelody, y_TrigRoom);
+y_TrigRoom = MyConv(y_GitMelody, y_TrigRoom);
 
-%V1 Faltung mit Matlab Funktion
-y_TrigRoom2_conv = conv(y_GitMelody, y_TrigRoom);
+%V2 Faltung mit Matlab Funktion
+y_TrigRoom2 = conv(y_GitMelody, y_TrigRoom);
 
-y_TrigRoom_conv = normalize(y_TrigRoom_conv);
-y_TrigRoom2_conv = normalize(y_TrigRoom2_conv);
+y_TrigRoom = normalize(y_TrigRoom);
+y_TrigRoom2 = normalize(y_TrigRoom2);
  
 %sound(y_GitMelody, fs_freqTrig);
 %pause;
 %sound(y_TrigRoom, fs_freqTrig);
 %pause;
 
-subplot(4, 1, 1)
-plot(y_GitMelody)
-title('GuitarOriginal')
-
-subplot(4, 1, 2)
-plot(y_TrigRoom)
-title('Roomsound')
-
-subplot(4, 1, 3)
-plot(y_TrigRoom2_conv)
+subplot(2, 1, 1)
+plot(y_TrigRoom2)
 title('myconv')
 
-subplot(4, 1, 4)
-plot(y_TrigRoom_conv)
+subplot(2, 1, 2)
+plot(y_TrigRoom)
 title('conv')
 
 
