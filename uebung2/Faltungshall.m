@@ -2,11 +2,11 @@
 % 
 
 %%
-% Laden der Dateien
+% Load the audio files
 [signal, fSignal] = audioread("GuitarMelody.wav");
 %[signal, fSignal] = audioread("../uebung1/GitRiff01.wav");
 %[signal, fSignal] = audioread("../uebung1/GitRiff02.wav");
-%[signal, fSignal] = audioread("../uebung1/Sprech.wav");#
+%[signal, fSignal] = audioread("../uebung1/Sprech.wav");
 
 %[response, fResponse] = audioread("Church2.wav");
 %[response, fResponse] = audioread("InTheSilo2.wav");
