@@ -11,9 +11,9 @@
 %v(2) = u(1)*h(2)+u(2)*h(1)
 %v(3) = u(1)*h(3)+u(2)*h(2)+u(3)*h(1)
 %...
-%v(n) = u(1)*h(n)+u(2)*h(n-1)+ ... +u(n)*h(1)
+%v(n) = u(1)*h(length(h))+u(2)*h(length(h)-1)+ ... +u(length(h))*h(1)
 %...
-%v(2*n-1) = u(n)*v(n)
+%v(2*length(h)-1) = u(length(h))*v(length(h))
 
 function v = MyConv(u,h)
  v = zeros(1,length(u)+length(h)-1);
