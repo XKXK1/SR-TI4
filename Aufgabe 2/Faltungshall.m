@@ -1,4 +1,3 @@
-
 %Eingangsaudio laden
 [y_GitMelody, fS_gitMelody] = audioread('GuitarMelody.wav');
 %StossAntwort laden

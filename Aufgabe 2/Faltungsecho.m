@@ -11,7 +11,7 @@ Echo_matrix = [ 0.0 1.0; 0.3 0.3; 0.5 0.2; 0.7 0.1; 0.75 0.1];
  
 %Groessenbestimmung des EchoVektors in diesem Fall 0.75 * Samplerate des
 %Eingangsaudiosignals
-Echo_size = freqGit * Echo_matrix(length(Echo_matrix));
+Echo_size = fS_gitMelody * Echo_matrix(length(Echo_matrix));
 %Speicher anlegen fuer den EchoVektor
 y_Echo = zeros(Echo_size,1);
  
