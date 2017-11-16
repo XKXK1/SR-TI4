@@ -10,7 +10,7 @@ function output = MyConv(a, b)
   else
     long = b;
     short = a;
-  endif
+  end
   
   % reserve space
   output = zeros(1, length(long));
@@ -24,8 +24,8 @@ function output = MyConv(a, b)
       signal = [long(end-n+i+1:end) long(1:i)];
     else
       signal = long(i-n+1 : i);
-    endif
+    end
     signal = signal .* shortFlip;
     output(i) = sum(signal);
-  endfor
+  end
  end

@@ -14,10 +14,10 @@ Echos = [ 0.0     1.0; ...
           
 %%
 % Load the audio file
-[signal, fSignal] = audioread("GuitarMelody.wav");
-%[signal, fSignal] = audioread("../uebung1/GitRiff01.wav");
-%[signal, fSignal] = audioread("../uebung1/GitRiff02.wav");
-%[signal, fSignal] = audioread("../uebung1/Sprech.wav");
+%[signal, fSignal] = audioread('GuitarMelody.wav');
+%[signal, fSignal] = audioread('../uebung1/GitRiff01.wav');
+%[signal, fSignal] = audioread('../uebung1/GitRiff02.wav');
+[signal, fSignal] = audioread('../uebung1/Sprech.wav');
 
 %%
 % Ensure signal is mono
@@ -28,10 +28,10 @@ signal = makeMono(signal);
 maskLength = max(Echos(:, 1)) * fSignal + 1;
 mask = zeros(1, maskLength);
 
-for i = 1:rows(Echos)
+for i = 1:size(Echos, 1)
   index = round(Echos(i,1) * fSignal + 1);
   mask(index) = Echos(i,2);
-endfor
+end
 
 %%
 % Convolution
@@ -41,4 +41,5 @@ fResult = fSignal;
 %%
 % Soundausabe
 soundsc(signal, fSignal);
+pause
 soundsc(result, fResult);

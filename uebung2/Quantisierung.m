@@ -10,10 +10,10 @@ plottingInterval = 15000:15400;
 
 %%
 % Load the audio file
-[signal, fSignal] = audioread("GuitarMelody.wav");
-%[signal, fSignal] = audioread("../uebung1/GitRiff01.wav");
-%[signal, fSignal] = audioread("../uebung1/GitRiff02.wav");
-%[signal, fSignal] = audioread("../uebung1/Sprech.wav");
+[signal, fSignal] = audioread('GuitarMelody.wav');
+%[signal, fSignal] = audioread('../uebung1/GitRiff01.wav');
+%[signal, fSignal] = audioread('../uebung1/GitRiff02.wav');
+%[signal, fSignal] = audioread('../uebung1/Sprech.wav');
 
 %%
 % Ensure signal is mono
@@ -35,7 +35,7 @@ n = length(Qsteps);
 
 for i = 1:n
   result(i,:) = round(signal * Qsteps(i)) / Qsteps(i);
-endfor
+end
 
 %%
 % Plot
@@ -51,12 +51,13 @@ for i = 1:n
   plot(plottingInterval, error(plottingInterval), 'k');  
   title(strcat('Error - Maximum=', num2str(maxError)));
   axis([-inf, inf, -0.05 0.05]);
-endfor
+end
 shg;
 
 %%
 % Play sound
 for i = 1:n
   disp(strcat('Playing sound for Qsteps=', int2str(Qsteps(i))));
+  pause
   soundsc(result(i,:), fSignal);
-endfor
+end

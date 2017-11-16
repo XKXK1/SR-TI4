@@ -3,14 +3,14 @@
 
 %%
 % Load the audio files
-[signal, fSignal] = audioread("GuitarMelody.wav");
-%[signal, fSignal] = audioread("../uebung1/GitRiff01.wav");
-%[signal, fSignal] = audioread("../uebung1/GitRiff02.wav");
-%[signal, fSignal] = audioread("../uebung1/Sprech.wav");
+%[signal, fSignal] = audioread('GuitarMelody.wav');
+[signal, fSignal] = audioread('../uebung1/GitRiff01.wav');
+%[signal, fSignal] = audioread('../uebung1/GitRiff02.wav');
+%[signal, fSignal] = audioread('../uebung1/Sprech.wav');
 
-%[response, fResponse] = audioread("Church2.wav");
-%[response, fResponse] = audioread("InTheSilo2.wav");
-[response, fResponse] = audioread("TrigRoom2.wav");
+[response, fResponse] = audioread('Church2.wav');
+%[response, fResponse] = audioread('InTheSilo2.wav');
+%[response, fResponse] = audioread('TrigRoom2.wav');
 
 %%
 % Ensure signals are mono
@@ -22,11 +22,11 @@ response = makeMono(response);
 if(fSignal > fResponse)
   signal = decimate(signal, (fSignal / fResponse));
   fSignal = fResponse;
-endif
+end
 if(fResponse > fSignal)
   response = decimate(response, (fResponse / fSignal));
   fResponse = fSignal;
-endif
+end
 
 %%
 % Convolution
@@ -40,4 +40,5 @@ fResult = fSignal;
 %%
 % Soundausabe
 soundsc(signal, fSignal);
+pause
 soundsc(result, fResult);
