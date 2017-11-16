@@ -27,11 +27,6 @@ timeForMatlabConv = toc;
 y_TrigRoom_conv = normalize(y_TrigRoom_conv);
 y_TrigRoom2_conv = normalize(y_TrigRoom2_conv);
  
-%sound(y_GitMelody, fs_freqTrig);
-%pause;
-%sound(y_TrigRoom, fs_freqTrig);
-%pause;
-
 subplot(4, 1, 1)
 plot(y_GitMelody)
 title('GuitarOriginal')
@@ -47,5 +42,10 @@ title('myconv')
 subplot(4, 1, 4)
 plot(y_TrigRoom_conv)
 title('conv')
+
+%sound(y_GitMelody, fs_freqTrig);
+%pause;
+%sound(y_TrigRoom, fs_freqTrig);
+%pause;
 
 
