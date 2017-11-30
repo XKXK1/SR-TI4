@@ -21,13 +21,21 @@ C = fft(signal) / length(signal);
 
 %%
 % approximate Frequency
+
+% find peaks
 [peaks, indices]=findpeaks(abs(C)(1:length(C) / 2));
+
+% find good deltas
 deltas = diff(indices);
-filteredDeltas = deltas(abs(deltas - median(deltas)) < 10 );
+significantDeltas = abs(deltas - median(deltas)) < 20;
+
+% take only those good deltas
+filteredDeltas = deltas(significantDeltas);
+filteredPeaks = indices(significantDeltas);
 
 f0 = mean(filteredDeltas) * DeltaF;
 
-% http://pianotip.de/frequenz.html 
+% Find note by checking thios table: http://pianotip.de/frequenz.html 
 
 
 %%
@@ -37,6 +45,7 @@ plot(signal);
 title('Signal');
 
 subplot(2, 1, 2);
-semilogy(fVec, abs(C), 'b');
+semilogy(fVec, abs(C), 'b', filteredPeaks * DeltaF, abs(C)(filteredPeaks), 'rx');
 title(strcat('FFT (up to 5.5 kHz) - f_0 = ', num2str(f0)));
+legend('Frequencies', 'Filterred Peaks for Frequency calculation');
 axis([0 5500 -inf inf]);
