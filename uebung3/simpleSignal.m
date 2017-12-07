@@ -21,17 +21,18 @@ B = B / length(B);
 
 %%
 % Plot Results
+x = linspace(1, length(s), length(s));
 subplot(3, 1, 1);
-plot(s ,'bx', s, 'b');
+plot(x, s, 'bx', x, s, 'b');
 title('Signal');
 
 subplot(3, 1, 2);
-plot(a ,'bx', A ,'r+', a, 'b', A, 'r');
+plot(x, a ,'bx', x, A ,'r+', x, a, 'b', x, A, 'r');
 title('Coeffs for COS: a');
 legend('myDFT()', 'fft()');
 
 subplot(3, 1, 3);
-plot(b ,'bx', B ,'r+', b, 'b', B, 'r');
+plot(x, b ,'bx', x, B ,'r+', x, b, 'b', x, B, 'r');
 title('Coeffs for SIN: b');
 legend('myDFT()', 'fft()');
 
