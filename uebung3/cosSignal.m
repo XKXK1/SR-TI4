@@ -20,17 +20,20 @@ for F = FVec
   %%
   % plot Real / Imaginary
   subplot(3, 1, 1);
-  plot(t, real(X), 'bx', t, real(X), 'b');
+  %plot(t, real(X), 'bx', t, real(X), 'b');
+  stem(t, real(X));
   title(strcat('Real (F=', num2str(F), ')'));
   axis([0 256 -inf inf]);
 
   subplot(3, 1, 2);
-  plot(t, imag(X), 'bx', t, imag(X), 'b');
+  %plot(t, imag(X), 'bx', t, imag(X), 'b');
+  stem(t, imag(X));
   title(strcat('Imag (F=', num2str(F), ')'));
   axis([0 256 -inf inf]);
 
   subplot(3, 1, 3);
-  plot(t, abs(X), 'bx', t, abs(X), 'b');
+  %plot(t, abs(X), 'bx', t, abs(X), 'b');
+  stem(t, abs(X));
   title(strcat('Abs (F=', num2str(F), ')'));
   axis([0 256 -inf inf]);
   

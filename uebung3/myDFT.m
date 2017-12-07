@@ -10,11 +10,11 @@ function [a, b] = myDFT(signal)
   a = zeros(1, M);
   b = zeros(1, M);
   
-  interval = 0:(M-1);
+  n = 0:(M-1);
   
-  for k = interval
+  for k = n
     % index in matlab starts at 1, so we need k+1
-    a(k + 1) = 1/M * sum(signal .* cos(2 * pi * k / M * interval));
-    b(k + 1) = 1/M * sum(signal .* sin(2 * pi * k / M * interval));
+    a(k + 1) = 1/M * sum(signal .* cos(2 * pi * k / M * n));
+    b(k + 1) = -1/M * sum(signal .* sin(2 * pi * k / M * n));
   end
 end
