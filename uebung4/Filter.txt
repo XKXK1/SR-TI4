@@ -1,0 +1,8 @@
+Aufgabe 1 a - Tiefpass:
+------------------------------
+Bartlett-Hanning = 760
+Chebyshev = 612 (sidelobe 43)
+Hamming = 660
+Gauss = 490 (alpha 1.72)
+
+
