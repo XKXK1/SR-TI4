@@ -32,8 +32,10 @@ title (strcat('Gefiltert mit k=', int2str(k)));
 xlabel 'Samples';
 
 % Signale normieren
+addpath ../lib; % load normalize function from our library
 y_in = normalize(y_in);
 y_out = normalize(y_out);
+rmpath ../lib;
 
 % Ausgabe
 sound(y_in, fS);
