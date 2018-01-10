@@ -1,5 +1,5 @@
 M=256; % Number of samples
-F=15.0; % cosine signal frequency 1) F= 15,50 2)F = 15,0, 15,25, 15,5.
+F=15.25; % cosine signal frequency 1) F= 15,50 2)F = 15,0, 15,25, 15,5.
 
 t=0:M-1;
 x=cos(2*pi*F*t/M);
@@ -20,7 +20,7 @@ title('Realteil')
 
 subplot(4,1,3);
 stem(imag(xDFT))
-title('Imaginärteil');
+title('Imaginï¿½rteil');
 
 subplot(4,1,4);
 plot(abs(xDFT))

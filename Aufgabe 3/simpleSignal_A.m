@@ -1,5 +1,7 @@
 %Eingangssignal
 s=[1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  1 1 1 1 1 1 1 1 ];
+deltaf = 1/length(s);
+f = (0:(length(s)-1))*deltaf;
 
 %DFT mit eigener Function
 [A,B]=MyDFT(s);
@@ -8,12 +10,12 @@ s=[1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  1 1 1 1 1 1 1 1 ];
 figure
 subplot(3,1,1);
 stem(s)
-title('Signal für MyDFT')
+title('Signal fï¿½r MyDFT')
 
 subplot(3,1,2);
-stem(A)
+stem(f,A)
 title('A: Realteil')
 
 subplot(3,1,3);
-stem(B)
-title('B: Imaginärteil')
+stem(f,B)
+title('B: Imaginï¿½rteil')
