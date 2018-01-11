@@ -4,7 +4,7 @@
 
 %%
 % Settings
-select = 4;
+select = 1;
 
 %%
 % Read/Generate signal
@@ -39,7 +39,20 @@ end
 
 %%
 % Filter
-filterred = filter(lowpass, 1, signal);
+
+% frequency vector
+T = length(signal) / fS;
+t = linspace(0, T, length(signal));
+DeltaF = 1 / T;
+fVec = 0 : DeltaF : fS;
+fVec = fVec(1:end-1);
+
+indexOf1500 = find(fVec >= 1500, 1);
+
+signalF = fft(signal);
+% cut off above 1500 Hz
+signalF = [signalF(1:indexOf1500); zeros(length(signal) - indexOf1500, 1)];
+filterred = real(ifft(signalF));
 
 
 %%
@@ -47,11 +60,7 @@ filterred = filter(lowpass, 1, signal);
 signalF = abs(fft(signal) / length(signal));
 filterredF = abs(fft(filterred) / length(signal));
 
-T = length(signal) / fS;
-t = linspace(0, T, length(signal));
-DeltaF = 1 / T;
-fVec = 0 : DeltaF : fS;
-fVec = fVec(1:end-1);
+
 
 
 %%

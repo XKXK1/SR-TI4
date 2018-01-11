@@ -25,11 +25,16 @@ elseif(select == 3)
     signal = rand(1, size);
 elseif(select == 4)
      fS = 44100;
-     tPulse = -0.5/20:1/fS:0.5/20;
-     p = rectpuls(tPulse, 5e-3);
-     t = 0:1/fS:5;
-     signal = repmat(p, 1, ceil(length(t) / length(p)));
-     signal = signal(1:length(t));
+%     tPulse = -0.5/20:1/fS:0.5/20;
+%     p = rectpuls(tPulse, 5e-3);
+%     t = 0:1/fS:5;
+%     signal = repmat(p, 1, ceil(length(t) / length(p)));
+%     signal = signal(1:length(t));
+     t = 0 : 1/fS :5;  % 44,1kHz sample freq für 1s    
+     d= 0 : 1/20 : 5;  % 20 Hz Wiederholrate für 5s
+     
+     % Rect der Breite 5ms
+     signal = pulstran(t,d, 'rectpuls', 5e-3);
 end
 
 %%
